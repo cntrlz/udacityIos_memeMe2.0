@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  MemeMe 2.0
+//  MemeMe 1.0
 //
-//  Created by benchmark on 9/1/16.
+//  Created by benchmark on 8/31/16.
 //  Copyright © 2016 Viktor Lantos. All rights reserved.
 //
 
@@ -12,7 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-
+	var memes = [Meme]()
+	
+	func removeMemeAtIndex(index : Int) {
+		memes.removeAtIndex(index)
+	}
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Override point for customization after application launch.
