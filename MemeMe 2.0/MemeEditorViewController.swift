@@ -153,8 +153,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 	}
 	
 	func showSavedMemes() {
-		let saved = self.storyboard!.instantiateViewControllerWithIdentifier("SavedMemesTab") as! UITabBarController
-		self.navigationController!.pushViewController(saved, animated: true)
+		let saved = storyboard!.instantiateViewControllerWithIdentifier("SavedMemesTab") as! UITabBarController
+		navigationController!.pushViewController(saved, animated: true)
 	}
 	
 	func generateMemedImage() -> UIImage {
@@ -212,7 +212,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 		if textFieldBottom.isFirstResponder(){
 			view.frame.origin.y = getKeyboardHeight(notification) * (-1)
 		} else if textFieldTop.isFirstResponder(){
-			self.view.frame.origin.y = 0;
+			view.frame.origin.y = 0;
 		}
 	}
 	

@@ -23,7 +23,7 @@ class MemeDetailViewController: UIViewController {
 	@IBAction func editMeme(sender: AnyObject) {
 		let maker = navigationController?.viewControllers[0] as! MemeEditorViewController
 		maker.meme = meme
-		self.navigationController!.popToRootViewControllerAnimated(true)
+		navigationController!.popToRootViewControllerAnimated(true)
 	}
 	
 	@IBAction func share(sender: AnyObject) {
