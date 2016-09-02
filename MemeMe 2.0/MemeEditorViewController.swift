@@ -131,9 +131,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 		let controller = UIAlertController()
 		controller.title = "No Image!"
 		controller.message = "Please select an image first"
-		let dismiss = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
-			self.dismissViewControllerAnimated(true, completion: nil)
-		})
+		let dismiss = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
 		controller.addAction(dismiss)
 		
 		self .presentViewController(controller, animated: true, completion: nil)
