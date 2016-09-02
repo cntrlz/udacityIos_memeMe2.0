@@ -20,14 +20,16 @@ class MemeDetailViewController: UIViewController {
 		imageView.image = meme.memedImage
 	}
 	
-	@IBAction func editMeme(sender: AnyObject) {
-		let maker = navigationController?.viewControllers[0] as! MemeEditorViewController
-		maker.meme = meme
-		navigationController!.popToRootViewControllerAnimated(true)
-	}
-	
 	@IBAction func share(sender: AnyObject) {
 		let activityController = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
 		presentViewController(activityController, animated: true, completion:nil)
+	}
+	
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if (segue.identifier == "editMeme") {
+			let editorNav = segue.destinationViewController as! UINavigationController
+			let editor = editorNav.viewControllers[0] as! MemeEditorViewController
+			editor.meme = meme
+		}
 	}
 }

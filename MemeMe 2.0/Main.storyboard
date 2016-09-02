@@ -43,20 +43,13 @@
                                             <action selector="saveCurrentMeme:" destination="BYZ-38-t0r" id="n74-Aq-dYH"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="vs3-w2-tPL"/>
-                                    <barButtonItem title="History" id="ve7-4n-0zH">
-                                        <connections>
-                                            <action selector="showHistory:" destination="BYZ-38-t0r" id="9vp-xq-dct"/>
-                                            <segue destination="Dgf-MZ-O9s" kind="show" id="Sva-sA-Doo"/>
-                                        </connections>
-                                    </barButtonItem>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eRe-JI-1xc" userLabel="containerView">
-                                <rect key="frame" x="-4" y="64" width="328" height="460"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eRe-JI-1xc" userLabel="containerView">
+                                <rect key="frame" x="-4" y="20" width="328" height="504"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9p-zK-kUN" userLabel="snapshotView">
-                                        <rect key="frame" x="0.0" y="66" width="328" height="328"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r9p-zK-kUN" userLabel="snapshotView">
+                                        <rect key="frame" x="0.0" y="88" width="328" height="328"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tJY-DB-ZVh" userLabel="memePreviewImageView">
                                                 <rect key="frame" x="0.0" y="0.0" width="328" height="328"/>
@@ -163,13 +156,13 @@
                             <constraint firstItem="KqG-Ef-46K" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="qBP-EO-gz8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Maker" id="z5z-0F-Pmm">
+                    <navigationItem key="navigationItem" title="Editor" id="z5z-0F-Pmm">
                         <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="action" id="d3L-O0-qbW" userLabel="share">
                             <connections>
                                 <action selector="share:" destination="BYZ-38-t0r" id="Xnv-l1-itq"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Clear" id="o8l-u1-VEP" userLabel="cancel">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="o8l-u1-VEP" userLabel="cancel">
                             <connections>
                                 <action selector="cancel:" destination="BYZ-38-t0r" id="fmx-u5-r3L"/>
                             </connections>
@@ -188,12 +181,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-60" y="1109"/>
+            <point key="canvasLocation" x="1754" y="1117"/>
         </scene>
-        <!--Table-->
+        <!--SavedMemesNav-->
         <scene sceneID="pg6-lS-weB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uC7-aM-5kL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SavedMemesNav" title="SavedMemesNav" automaticallyAdjustsScrollViewInsets="NO" id="uC7-aM-5kL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Table" image="table" id="BuA-CQ-FAQ"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -204,12 +197,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4mF-Z5-S7Y"/>
+                        <segue destination="Dgf-MZ-O9s" kind="relationship" relationship="rootViewController" id="ABm-iD-1YK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vMM-Cp-NUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-524" y="1109"/>
+            <point key="canvasLocation" x="-46" y="1109"/>
         </scene>
         <!--Collection-->
         <scene sceneID="tJb-6z-P9i">
@@ -360,7 +353,7 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="edit" id="i2B-9P-3Jy">
                                 <connections>
-                                    <action selector="editMeme:" destination="St0-sg-Ogg" id="HX2-bE-EIZ"/>
+                                    <segue destination="tdV-vB-wDx" kind="presentation" identifier="editMeme" id="n3V-Qz-PLJ"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="action" id="78b-Iq-WoY">
@@ -378,14 +371,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NMa-rq-8Ce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1394" y="1109"/>
+            <point key="canvasLocation" x="1754" y="395"/>
         </scene>
-        <!--History-->
+        <!--SavedMemes-->
         <scene sceneID="Flf-2b-KVG">
             <objects>
-                <tabBarController storyboardIdentifier="SavedMemesTab" title="History" automaticallyAdjustsScrollViewInsets="NO" id="Dgf-MZ-O9s" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="SavedMemesTab" title="SavedMemes" automaticallyAdjustsScrollViewInsets="NO" id="Dgf-MZ-O9s" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="My Memes" id="Nw3-ts-yf2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qUo-32-Yvh">
+                            <connections>
+                                <segue destination="tdV-vB-wDx" kind="presentation" id="G7N-Cs-Ys9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="t8w-6N-tru">
                         <autoresizingMask key="autoresizingMask"/>
@@ -400,9 +400,30 @@
             </objects>
             <point key="canvasLocation" x="396" y="1109"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qt7-23-PEl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tdV-vB-wDx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LzS-wY-IqY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8aQ-RX-X5t"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cEL-vl-HIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1318" y="1117"/>
+        </scene>
     </scenes>
     <resources>
         <image name="collection" width="30" height="30"/>
         <image name="table" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="n3V-Qz-PLJ"/>
+    </inferredMetricsTieBreakers>
 </document>

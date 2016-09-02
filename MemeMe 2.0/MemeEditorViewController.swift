@@ -36,7 +36,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 		setupTextField(textFieldTop)
 		setupTextField(textFieldBottom)
 		
-		meme = nil
+		// If we have a meme loaded up, or sent from another controller, use that
+		if meme != nil {
+			previewImageView.image = meme.originalImage
+			textFieldTop.text = meme.topText
+			textFieldBottom.text = meme.bottomText
+		}
     }
 	
 	override func viewWillAppear(animated: Bool) {
@@ -45,13 +50,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 		// Check to see if our device has a camera. If it does not support one, disable our camera button
 		if !UIImagePickerController.isSourceTypeAvailable(.Camera){
 			cameraButton.enabled = false
-		}
-		
-		// If we have a meme loaded up, or sent from another controller, use that
-		if meme != nil {
-			previewImageView.image = meme.originalImage
-			textFieldTop.text = meme.topText
-			textFieldBottom.text = meme.bottomText
 		}
 		
 		subscribeToKeyboardNotifications()
@@ -125,6 +123,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 		shareButton.enabled = false
 		textFieldTop.text = DefaultText.Top.rawValue
 		textFieldBottom.text = DefaultText.Bottom.rawValue
+		dismissViewControllerAnimated(true, completion: nil)
 	}
 	
 	// MARK: - Alerts
@@ -149,12 +148,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 	
 	func save(meme: Meme) {
 		(UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
-		showSavedMemes()
-	}
-	
-	func showSavedMemes() {
-		let saved = storyboard!.instantiateViewControllerWithIdentifier("SavedMemesTab") as! UITabBarController
-		navigationController!.pushViewController(saved, animated: true)
+		dismissViewControllerAnimated(true, completion: nil)
 	}
 	
 	func generateMemedImage() -> UIImage {
